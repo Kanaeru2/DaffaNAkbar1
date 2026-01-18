@@ -1,0 +1,186 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+  min-height: 100vh;
+  background: #121c33;
+  font-family: system-ui, sans-serif;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px;
+}
+
+/* ===== TITLE ===== */
+.text {
+  font-size: 3rem;
+  margin-bottom: 50px;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* ===== BOX ===== */
+.box {
+  width: 300px;
+  max-width: 450px;
+  height: 300px;
+
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+
+  box-shadow: 0 10px 20px rgba(0, 132, 240, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.box.skill {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 4px;
+  font-weight: bold;
+
+ 
+  height: 300px;
+  width: 80px;
+
+}
+
+
+/* ===== BACK BUTTON ===== */
+.btna a {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+
+  padding: 8px 16px;
+  background: rgb(1, 170, 255);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.btna a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .text {
+    font-size: 2.2rem;
+  }
+
+  .box {
+    height: 220px;
+  }
+}
+
+/* ===== CARD LOGIC ===== */
+.card input {
+  display: none;
+}
+
+/* ===== OVERLAY ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* ===== ACTIVE OVERLAY ===== */
+.card input:checked ~ .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ===== CONTENT ===== */
+.content {
+  width: 90%;
+  max-width: 720px;
+  padding: 48px;
+  text-align: center;
+
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  border-radius: 24px;
+  color: white;
+
+  transform: scale(0.85) translateY(30px);
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.card input:checked ~ .overlay .content {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* ===== CLOSE ===== */
+.close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.close:hover {
+  opacity: 1;
+}
+
+/* ===== DISABLE BOX WHEN OPEN ===== */
+.card input:checked + .box {
+  pointer-events: none;
+}
+
+/* Quotes */
+
+hr {
+  border: none;
+  height: 2px;
+  background: #053fdd;
+  width: 100%;
+  margin: 20px auto;
+}

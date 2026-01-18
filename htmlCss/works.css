@@ -1,0 +1,133 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+  min-height: 100vh;
+  background: #0f172a;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+/* ===== HERO ===== */
+.hero {
+  width: 100%;
+  min-height: clamp(280px, 50vh, 420px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 20px;
+}
+
+/* ===== HERO TEXT ===== */
+.hero h2.build {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.hero p {
+  color: #94a3b8;
+  margin-bottom: 2rem;
+  max-width: 520px;
+  font-size: 25px;
+}
+
+/* ===== RESPONSIVE HERO ===== */
+@media (max-width: 768px) {
+  .hero {
+    justify-content: flex-start;
+    padding-top: 64px;
+    min-height: 240px;
+  }
+
+  .hero h2.build {
+    font-size: 2rem;
+  }
+}
+
+/* ===== BACK BUTTON ===== */
+a {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+
+  padding: 6px 12px;
+  background-color: rgb(1, 170, 255);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(1, 170, 255, 0.4);
+}
+
+/* ===== GRID CONTAINER ===== */
+.container {
+  width: 90%;
+  max-width: 900px;
+
+  margin: 20px auto 80px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+}
+
+/* ===== CARD / BOX ===== */
+.box {
+  min-height: 180px;
+  padding: 16px;
+
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+
+  color: white;
+  text-align: center;
+
+  transition: transform 0.35s cubic-bezier(.4,0,.2,1),
+              box-shadow 0.35s ease;
+}
+
+/* ===== CARD TEXT ===== */
+.box h1 {
+  font-size: 1.9rem;
+}
+
+.box p {
+  font-size: 1rem;
+  opacity: 1;
+    white-space: normal;      
+  word-break: break-word;
+}
+
+/* ===== HOVER EFFECT ===== */
+.box:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== DISABLE HOVER ON TOUCH ===== */
+@media (hover: none) {
+  .box:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
